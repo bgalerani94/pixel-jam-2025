@@ -5,18 +5,24 @@ using UnityEngine; // Necessário para usar UnityEngine.Random
 public class GeniusEngine
 {
     // Método Genius que retorna uma lista de números aleatórios
-    public List<int> Genius()
+    public void Genius()
     {
         List<int> numeros = new List<int>(); // Cria a lista para armazenar os números aleatórios
-        int round = 5; // O round define o número de cores/itens que o jogador pode escolher
-
-        // Adiciona números aleatórios de 1 a 4 à lista
-        for (int i = 0; i < round; i++)
+        numeros.Clear(); // Limpa a lista antes de adicionar novos números
+        for (int i = 0; i < 5; i++)
         {
             // Gera números aleatórios de 1 a 4 (1 = azul, 2 = amarelo, 3 = vermelho, 4 = verde)
             numeros.Add(UnityEngine.Random.Range(1, 5)); // UnityEngine.Random.Range(min, max) retorna valores entre min (inclusive) e max (exclusivo)
         }
+        Debug.Log("Números gerados: " + string.Join(", ", numeros)); // Exibe os números gerados no console
 
-        return numeros; // Retorna a lista com os números aleatórios
+        // Esse for vai controlar a leitura dos numeros por round
+        for (int i=1; i <= 5; i++)
+        {
+            List<int> subsequencia = numeros.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
+            Debug.Log("Round " + (i) + ": " + string.Join(", ", subsequencia)); // Exibe a sequência atual no console
+        }
+
+    
     }
 }

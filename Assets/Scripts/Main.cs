@@ -8,9 +8,8 @@ public class Main : MonoBehaviour
     void Start()
     {
         List<int> numeros = new List<int>();
-        GeniusEngine g = new GeniusEngine(); // Cria uma instância da classe GEngine
-        numeros = g.Genius(); // Chama o método Genius da classe GEngine
-        Debug.Log("Lista completa: " + string.Join(", ", numeros));        
+        GeniusEngine g = new GeniusEngine(); // Cria uma instância da classe GEngine        
+        g.Genius(); // Gera os números aleatórios
     }
 
     // Update is called once per frame
