@@ -11,7 +11,7 @@ public class HelloWorld : MonoBehaviour
         int round = 5; //o round que o jogador está jogando define a quantidade de cores que ele pode escolher
 
 
-        // Adiciona números de 1 a <ROUND> à lista
+        // Adiciona números de 1 a 4 à lista de tamanho igual ao round
         for (int i = 1; i <= round; i++)
             {
                 // Gera números aleatórios de 1 a 4
