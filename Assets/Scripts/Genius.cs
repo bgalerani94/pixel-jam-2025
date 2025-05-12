@@ -14,7 +14,7 @@ public class HelloWorld : MonoBehaviour
         // Adiciona números de 1 a <ROUND> à lista
         for (int i = 1; i <= round; i++)
             {
-                // Gera números aleatórios de 1 a <ROUND>
+                // Gera números aleatórios de 1 a 4
                 // 1 = azul, 2 = amarelo, 3 = vermelho, 4 = verde
                 numeros.Add(UnityEngine.Random.Range(1, 5));
             }
