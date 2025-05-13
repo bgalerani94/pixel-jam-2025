@@ -338,9 +338,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCharactersAtOnce: 155
   textSecondsInterval: 0.0025
+  fadeAnimationTime: 0.2
   objectHolder: {fileID: 2120109231}
   fadeBackground: {fileID: 1421509819}
+  frameCanvasGroup: {fileID: 1498206486}
   dialogueText: {fileID: 1115380656}
+  bouncingArrow: {fileID: 957779387}
   testButton: {fileID: 1875839232}
   testText: "Mussum Ipsum, cacilds vidis litro abertis. Eu nunca mais boto a boca
     num copo de cacha\xE7a, agora eu s\xF3 uso canudis! Nulla id gravida magna, ut
@@ -356,6 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957779384}
   - component: {fileID: 957779386}
+  - component: {fileID: 957779387}
   - component: {fileID: 957779385}
   m_Layer: 5
   m_Name: Arrow
@@ -363,7 +367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &957779384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -380,9 +384,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12.5, y: 12.499985}
   m_SizeDelta: {x: 25, y: 25}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &957779385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +425,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957779383}
   m_CullTransparentMesh: 1
+--- !u!114 &957779387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957779383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1349e347f18e8469d245d6b9d437bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yMovementAmount: 15
+  animTime: 0.2
 --- !u!1 &1007797056
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,8 +634,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ba65d34d18f15534a957839290ff92ae, type: 2}
-  m_sharedMaterial: {fileID: -1689238182260208125, guid: ba65d34d18f15534a957839290ff92ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e75e0bbe7b9f6f543bfce3981f520414, type: 2}
+  m_sharedMaterial: {fileID: -6918302619987924729, guid: e75e0bbe7b9f6f543bfce3981f520414, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -641,8 +659,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -806,8 +824,8 @@ Camera:
   m_GameObject: {fileID: 1235313992}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.19215688, g: 0.4745098, b: 0.3201768, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -993,6 +1011,7 @@ GameObject:
   - component: {fileID: 1498206483}
   - component: {fileID: 1498206485}
   - component: {fileID: 1498206484}
+  - component: {fileID: 1498206486}
   m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
@@ -1058,6 +1077,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498206482}
   m_CullTransparentMesh: 1
+--- !u!225 &1498206486
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498206482}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1836935153
 GameObject:
   m_ObjectHideFlags: 0

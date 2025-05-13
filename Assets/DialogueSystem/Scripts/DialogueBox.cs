@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,15 +11,17 @@ namespace DialogueSystem.Scripts
     {
         [Header("Params")]
         [SerializeField] private int maxCharactersAtOnce;
-
         [SerializeField] private float textSecondsInterval;
+        [SerializeField] private float fadeAnimationTime;
 
         [Header("Components")]
         [SerializeField] private GameObject objectHolder;
-
         [SerializeField] private Image fadeBackground;
+        [SerializeField] private CanvasGroup frameCanvasGroup;
         [SerializeField] private TMP_Text dialogueText;
+        [SerializeField] private BouncingUI bouncingArrow;
 
+        private float _initialFadeValue;
         private Coroutine _coroutine;
 
 
@@ -29,8 +32,8 @@ namespace DialogueSystem.Scripts
         private void Awake()
         {
             testButton.onClick.AddListener(() => ShowText(testText));
+            _initialFadeValue = fadeBackground.color.a;
         }
-
         //TEMP End
 
         public void ShowText(string conversationText)
@@ -42,8 +45,7 @@ namespace DialogueSystem.Scripts
 
         private IEnumerator ShowDialogue(string conversationText)
         {
-            dialogueText.text = string.Empty;
-            objectHolder.SetActive(true);
+            yield return ShowUI();
 
             var textSize = conversationText.Length;
             var repetitions = Mathf.CeilToInt(textSize / (float)maxCharactersAtOnce);
@@ -54,9 +56,6 @@ namespace DialogueSystem.Scripts
                 var startingIndex = i * maxCharactersAtOnce;
                 var textToShow = conversationText.Substring(startingIndex,
                     Mathf.Min(maxCharactersAtOnce, conversationText.Length - startingIndex));
-                
-                Debug.Log(textToShow.Length);
-                Debug.Log(textToShow);
 
                 foreach (var character in textToShow)
                 {
@@ -64,8 +63,32 @@ namespace DialogueSystem.Scripts
                     yield return new WaitForSeconds(textSecondsInterval);
                 }
 
+                bouncingArrow.Show();
                 yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame);
+                bouncingArrow.Hide();
             }
+
+            yield return HideUI();
+        }
+
+        private IEnumerator ShowUI()
+        {
+            dialogueText.text = string.Empty;
+            fadeBackground.DOFade(0, 0);
+            frameCanvasGroup.alpha = 0;
+            objectHolder.SetActive(true);
+
+            fadeBackground.DOFade(_initialFadeValue, fadeAnimationTime);
+            yield return new WaitForSeconds(0.15f);
+            yield return frameCanvasGroup.DOFade(1, fadeAnimationTime).WaitForCompletion();
+        }
+
+        private IEnumerator HideUI()
+        {
+            frameCanvasGroup.DOFade(0, fadeAnimationTime * 1.5f);
+            yield return new WaitForSeconds(0.1f);
+            yield return fadeBackground.DOFade(0, fadeAnimationTime * 1.5f).WaitForCompletion();
+            objectHolder.SetActive(false);
         }
     }
 }
