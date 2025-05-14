@@ -16,6 +16,7 @@ public class GeniusEngine
         Debug.Log("Números gerados: " + string.Join(", ", numeros)); // Exibe os números gerados no console
 
         // Esse for vai controlar a leitura dos numeros por round
+        // Talvez remover esse for (ou substituir) pra validar se o jogador acertou os números
         for (int i=1; i <= 5; i++)
         {
             List<int> subsequencia = numeros.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
