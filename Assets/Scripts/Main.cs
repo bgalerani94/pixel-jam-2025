@@ -7,7 +7,10 @@ public class Main : MonoBehaviour
     void Start()
     {        
         GeniusEngine g = new GeniusEngine(); // Cria uma instância da classe GEngine        
-        g.Genius(); // Gera os números aleatórios
+        //List<int> genius = g.Generate_numbers(); // Gera e armazena os números aleatórios
+        g.setNumeros();
+        g.getNumeros();
+        g.jogar(g.getNumeros());
     }
 
     // Update is called once per frame
