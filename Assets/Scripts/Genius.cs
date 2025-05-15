@@ -51,8 +51,6 @@ public class GeniusEngine
 
             //fim teste respostas
 
-
-            Debug.Log("Round " + (i) + ": " + string.Join(", ", subsequencia)); // Exibe a sequência atual no console
             resposta.Clear();// O player precisa entrar com todas as cores em cada round, não só a última
         }
     }
