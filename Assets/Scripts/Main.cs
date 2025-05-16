@@ -6,9 +6,7 @@ public class Main : MonoBehaviour
     public GeniusEngine g;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {        
-              
-        //List<int> genius = g.Generate_numbers(); // Gera e armazena os números aleatórios
+    {            
         g.setNumeros();
         StartCoroutine(g.jogar(g.getNumeros()));
     }
