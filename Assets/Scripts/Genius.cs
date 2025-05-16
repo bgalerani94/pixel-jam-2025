@@ -1,12 +1,16 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
-public class GeniusEngine
+public class GeniusEngine : MonoBehaviour
 {
     private List<int> numeros = new List<int>();
+    public int playerinput=-1;
 
-    public void setNumeros(){
+    public void setNumeros()
+    {
         this.numeros.Clear(); // Limpa a lista antes de adicionar novos números
         for (int i = 0; i < 5; i++)// Gera 5 números aleatórios
         {
@@ -20,32 +24,38 @@ public class GeniusEngine
         return this.numeros;        
     }
 
+
     //Essa função vai controlar o input do jogador
-    public List<int> jogada(int n)
+    public IEnumerator jogada(int n, Action <List<int>> callback)
     {
-        List<int> resposta = new List<int>();
+        List<int> resp = new List<int>();
         for (int i = 1; i <= n; i++)
         {
             //Recebe o input do jogador
-            resposta.Add(/*INPUT DO JOGADOR*/1);//coloquei esse 1 só pra não dar erro, mas aqui vai o input do jogador
+            yield return new WaitUntil(() => playerinput != -1);
+            resp.Add(playerinput);//coloquei esse 1 só pra não dar erro, mas aqui vai o input do jogador
+            playerinput = -1;
         }
-        return resposta;
+        callback(resp);
+        yield return null;
     }     
 
-    public void jogar(List<int> gerados)
+    public IEnumerator jogar(List<int> gerados)
     {
 
         int falha = 0; //quantas chances o jogador tem
 
         // Esse for vai controlar a leitura dos numeros por round
         // Talvez remover esse for (ou substituir) pra validar se o jogador acertou os números
-        for (int i = 1; i <= 1; i++)//quantidade de rounds
+        for (int i = 1; i <= 5; i++)//quantidade de rounds
         {
             List<int> subsequencia = gerados.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
 
             //aqui o jogador vai ter que digitar os numeros
             //round 1 = 1 numero, round 2 = 2 numeros e assim por diante
-            List<int> resposta = jogada(i); //chama a função jogada passando o round atual            
+            List<int> resposta = new List<int>();//jogada(i); //chama a função jogada passando o round atual    
+            yield return StartCoroutine(jogada(i, resp=>resposta=resp)); // Chama a função jogada e espera até que o jogador tenha inserido os números        
+
 
             //esse if é pra validar o acerto e caso negativo incrementar a falha e voltar um round
 
