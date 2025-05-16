@@ -3,11 +3,11 @@ using UnityEngine;
 public class GButtons : MonoBehaviour
 {
 
+    public int A; // Valor do botão
     public void Press(int Value)
     {
-        if (GeniusEngine.WaitInput) {
-        GeniusEngine.botao = Value;
-        }
+        A = Value;
+        Debug.Log("Button value set to: " + A);
     }
 
 }
