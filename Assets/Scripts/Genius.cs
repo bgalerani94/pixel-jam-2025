@@ -33,7 +33,7 @@ public class GeniusEngine : MonoBehaviour
         {
             //Recebe o input do jogador
             yield return new WaitUntil(() => playerinput != -1);
-            resp.Add(playerinput);//coloquei esse 1 só pra não dar erro, mas aqui vai o input do jogador
+            resp.Add(playerinput);
             playerinput = -1;
         }
         callback(resp);
@@ -53,7 +53,7 @@ public class GeniusEngine : MonoBehaviour
 
             //aqui o jogador vai ter que digitar os numeros
             //round 1 = 1 numero, round 2 = 2 numeros e assim por diante
-            List<int> resposta = new List<int>();//jogada(i); //chama a função jogada passando o round atual    
+            List<int> resposta = new List<int>(); //chama a função jogada passando o round atual    
             yield return StartCoroutine(jogada(i, resp=>resposta=resp)); // Chama a função jogada e espera até que o jogador tenha inserido os números        
 
 
