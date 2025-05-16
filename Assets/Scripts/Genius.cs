@@ -6,8 +6,7 @@ public class GeniusEngine
 {
     private List<int> numeros = new List<int>();
 
-    public void setNumeros()
-    {
+    public void setNumeros(){
         this.numeros.Clear(); // Limpa a lista antes de adicionar novos números
         for (int i = 0; i < 5; i++)// Gera 5 números aleatórios
         {
@@ -27,7 +26,7 @@ public class GeniusEngine
         List<int> resposta = new List<int>();
         for (int i = 1; i <= n; i++)
         {
-            // Gera números aleatórios de 1 a 4 (1 = azul, 2 = amarelo, 3 = vermelho, 4 = verde)
+            //Recebe o input do jogador
             resposta.Add(/*INPUT DO JOGADOR*/1);//coloquei esse 1 só pra não dar erro, mas aqui vai o input do jogador
         }
         return resposta;
