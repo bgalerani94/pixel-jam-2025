@@ -7,7 +7,8 @@ using System;
 public class GeniusEngine : MonoBehaviour
 {
     private List<int> numeros = new List<int>();
-    public int playerinput=-1;
+    public int playerinput = -1;
+    public Colours Colours;
 
     public void setNumeros()
     {
@@ -17,16 +18,16 @@ public class GeniusEngine : MonoBehaviour
             // Gera números aleatórios de 1 a 4 (1 = azul, 2 = amarelo, 3 = vermelho, 4 = verde)
             this.numeros.Add(UnityEngine.Random.Range(1, 5));
         }
-        Debug.Log("Numeros gerados aleatóriamente: " + string.Join(", ", numeros));
     }
 
-    public List<int> getNumeros(){
-        return this.numeros;        
+    public List<int> getNumeros()
+    {
+        return this.numeros;
     }
 
 
     //Essa função vai controlar o input do jogador
-    public IEnumerator jogada(int n, List<int> controle, Action <List<int>> callback)
+    public IEnumerator jogada(int n, List<int> controle, Action<List<int>> callback)
     {
         //a lista controle é a lista gerada randomicamente
 
@@ -63,12 +64,13 @@ public class GeniusEngine : MonoBehaviour
             List<int> subsequencia = gerados.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
 
 
+
             /*
             ***************************************************************************
             * Aqui seria a animação do jogo, onde o jogador vai ver as cores piscando *
             ***************************************************************************
             */
-
+            yield return Colours.PlaySequenceAnimation(subsequencia);
 
 
 
@@ -88,6 +90,7 @@ public class GeniusEngine : MonoBehaviour
                 }
             }
             resposta.Clear();// O player precisa entrar com todas as cores em cada round, não só a última
+            yield return new WaitForSeconds(0.5f); // Espera 1 segundo entre os rounds
         }
     }
 }
