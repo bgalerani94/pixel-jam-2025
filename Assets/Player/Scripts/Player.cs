@@ -3,6 +3,7 @@ using DialogueSystem.Scripts;
 using RotateMinigame.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player.Scripts
 {
@@ -22,7 +23,7 @@ namespace Player.Scripts
         private InputAction _movementVerticalAction;
         private Vector2 _velocity;
 
-        private bool _canMove = true;
+        [NonSerialized] public bool CanMove = true;
 
         private void Awake()
         {
@@ -50,7 +51,7 @@ namespace Player.Scripts
 
         private void OnMoveHorizontalTriggered(InputAction.CallbackContext context)
         {
-            if (_canMove)
+            if (CanMove)
             {
                 _velocity.x = context.ReadValue<Vector2>().x;
                 if (_velocity.x != 0) spriteRenderer.flipX = _velocity.x < 0;
@@ -59,7 +60,7 @@ namespace Player.Scripts
 
         private void OnMoveVerticalTriggered(InputAction.CallbackContext context)
         {
-            if (_canMove)
+            if (CanMove)
             {
                 _velocity.y = context.ReadValue<Vector2>().y;
             }
@@ -82,14 +83,14 @@ namespace Player.Scripts
 
         private void OnDialogueStarted()
         {
-            _canMove = false;
+            CanMove = false;
             _velocity = Vector2.zero;
             _rb.linearVelocity = _velocity;
         }
 
         private void OnDialogueEnded()
         {
-            _canMove = true;
+            CanMove = true;
         }
     }
 }
