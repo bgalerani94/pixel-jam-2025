@@ -1,48 +1,89 @@
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Colours : MonoBehaviour
 {
-    // Reference to the button's Image component
-    private Image buttonImage;
+    // Button references and their individual colors
+    [System.Serializable]
+    public class ButtonData
+    {
+        public Button button;
+        public Color highlightColor = Color.white;
+    }
+
+    public ButtonData[] buttonData = new ButtonData[4]; // Array for 4 buttons
     
-    // The original color of the button
-    private Color originalColor;
+    private Color[] originalColors;
     
-    // The color to change to during animation
-    public Color highlightColor = Color.white;
-    
-    // Duration of the color change animation
-    public float colorChangeDuration = 0.3f;
+    // Timing settings
+    public float flashDuration = 0.3f;
+    public float delayBetweenButtons = 0.5f;
+
+    // Add this to your Colours class
+                    public Color GetOriginalColor(int buttonIndex)
+                    {
+                        if (buttonIndex < 0 || buttonIndex >= originalColors.Length)
+                            return Color.white;
+                        return originalColors[buttonIndex];
+                    }
+                    public Color GetHighlightColor(int buttonIndex)
+                    {
+                        if (buttonIndex < 0 || buttonIndex >= buttonData.Length)
+                            return Color.white;
+                        return buttonData[buttonIndex].highlightColor;
+                    }
+
 
     private void Awake()
     {
-        // Get the Image component attached to this button
-        buttonImage = GetComponent<Image>();
-        
-        // Store the original color
-        originalColor = buttonImage.color;
+        // Store original colors
+        originalColors = new Color[buttonData.Length];
+        for (int i = 0; i < buttonData.Length; i++)
+        {
+            if (buttonData[i].button != null)
+            {
+                originalColors[i] = buttonData[i].button.image.color;
+            }
+        }
     }
 
-    // Method to animate the color change
-    public void AnimateColor()
+    // Flash a single button by index (0-3)
+    public void FlashButton(int buttonIndex)
     {
-        // Sequence allows us to chain animations
-        Sequence colorSequence = DOTween.Sequence();
-        
-        // Change to highlight color
-        colorSequence.Append(buttonImage.DOColor(highlightColor, colorChangeDuration));
-        
-        // Change back to original color
-        colorSequence.Append(buttonImage.DOColor(originalColor, colorChangeDuration));
+        Image buttonImage = buttonData[buttonIndex].button.image;
+        Color highlightColor = buttonData[buttonIndex].highlightColor;
+
+        Sequence flashSequence = DOTween.Sequence();
+        flashSequence.Append(buttonImage.DOColor(highlightColor, flashDuration / 2));
+        flashSequence.Append(buttonImage.DOColor(originalColors[buttonIndex], flashDuration / 2));
+        flashSequence.Play();
     }
 
-    // Optional: Add a method to animate with a specific color
-    public void AnimateWithColor(Color targetColor, float duration)
+    // Play a sequence of button flashes
+    public void PlaySequence(List<int> sequence)
     {
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(buttonImage.DOColor(targetColor, duration));
-        sequence.Append(buttonImage.DOColor(originalColor, duration));
+        StartCoroutine(PlaySequenceCoroutine(sequence));
+    }
+
+    private IEnumerator PlaySequenceCoroutine(List<int> sequence)
+    {
+        foreach (int buttonIndex in sequence)
+        {
+            FlashButton(buttonIndex);
+            yield return new WaitForSeconds(flashDuration + delayBetweenButtons);
+        }
+    }
+
+    // Play all buttons in order (for testing)
+    public void PlayAllButtons()
+    {
+        for (int i = 0; i < buttonData.Length; i++)
+        {
+            int index = i;
+            DOVirtual.DelayedCall(i * delayBetweenButtons, () => FlashButton(index));
+        }
     }
 }

@@ -32,7 +32,7 @@ public class GeniusEngine : MonoBehaviour
 
         List<int> resp = new List<int>();
         for (int i = 0; i < n; i++)
-        {
+        {            
             //Recebe o input do jogador
             yield return new WaitUntil(() => playerinput != -1);
             //checa se o numero digitado corresponde ao index do numero gerado
@@ -63,12 +63,13 @@ public class GeniusEngine : MonoBehaviour
             List<int> subsequencia = gerados.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
 
 
+
             /*
             ***************************************************************************
             * Aqui seria a animação do jogo, onde o jogador vai ver as cores piscando *
             ***************************************************************************
             */
-
+            Debug.Log("NUMEROS GERADOS: " + string.Join(", ", subsequencia));
 
 
 
