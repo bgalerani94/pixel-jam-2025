@@ -26,19 +26,30 @@ public class GeniusEngine : MonoBehaviour
 
 
     //Essa função vai controlar o input do jogador
-    public IEnumerator jogada(int n, Action <List<int>> callback)
+    public IEnumerator jogada(int n, List<int> controle, Action <List<int>> callback)
     {
+        //a lista controle é a lista gerada randomicamente
+
         List<int> resp = new List<int>();
-        for (int i = 1; i <= n; i++)
+        for (int i = 0; i < n; i++)
         {
             //Recebe o input do jogador
             yield return new WaitUntil(() => playerinput != -1);
-            resp.Add(playerinput);
-            playerinput = -1;
+            //checa se o numero digitado corresponde ao index do numero gerado
+            if (playerinput != controle[i])
+            {
+                playerinput = -1;
+                break; //se o jogador errar, sai do loop
+            }
+            else
+            {
+                resp.Add(playerinput);
+                playerinput = -1;
+            }
         }
         callback(resp);
         yield return null;
-    }     
+    }
 
     public IEnumerator jogar(List<int> gerados)
     {
@@ -51,23 +62,28 @@ public class GeniusEngine : MonoBehaviour
         {
             List<int> subsequencia = gerados.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
 
+
+            /*
+            ***************************************************************************
+            * Aqui seria a animação do jogo, onde o jogador vai ver as cores piscando *
+            ***************************************************************************
+            */
+
+
+
+
             //aqui o jogador vai ter que digitar os numeros
             //round 1 = 1 numero, round 2 = 2 numeros e assim por diante
-            List<int> resposta = new List<int>();  
-            yield return StartCoroutine(jogada(i, resp=>resposta=resp)); // Chama a função jogada passando o round atual e espera até que o jogador tenha inserido os números        
-
+            List<int> resposta = new List<int>();
+            yield return StartCoroutine(jogada(i, subsequencia, resp => resposta = resp)); //Chama a jogada passando o round atual e espera até que o jogador insira os números        
 
             //esse if é pra validar o acerto e caso negativo incrementar a falha e voltar um round
-
             if (!subsequencia.SequenceEqual(resposta))
             {
                 falha++;
-                Debug.Log("Round " + i + "Testando decremento do round");
-                Debug.Log("Round " + i + " Falha: " + falha);
                 i--; //aqui decrementa o i pra repetir o round      
                 if (falha == 3)//aqui só aceitamos 3 falhas como exemplo, só alterar esse valor que mudamos quantas falhas serão aceitas
                 {
-                    Debug.Log("Você perdeu!");
                     break; // Sai do loop se o jogador falhar 3 vezes
                 }
             }

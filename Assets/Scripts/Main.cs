@@ -6,7 +6,7 @@ public class Main : MonoBehaviour
     public GeniusEngine g;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {            
+    {
         g.setNumeros();
         StartCoroutine(g.jogar(g.getNumeros()));
     }
