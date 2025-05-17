@@ -50,6 +50,49 @@ public class Colours : MonoBehaviour
         }
     }
 
+
+
+    // New method to play the sequence animation
+    public IEnumerator PlaySequenceAnimation(List<int> sequence)
+    {
+        SetPlayerInput(false);
+
+        foreach (int buttonIndex in sequence)
+        {
+
+            Button btn = buttonData[buttonIndex-1].button;
+            Image btnImage = btn.image;
+            Color highlight = buttonData[buttonIndex-1].highlightColor;
+
+            Sequence flash = DOTween.Sequence();
+            flash.Append(btnImage.DOColor(highlight, flashDuration / 2));
+            flash.Join(btn.transform.DOScale(1.1f, flashDuration / 2));
+            flash.Append(btnImage.DOColor(originalColors[buttonIndex-1], flashDuration / 2));
+            flash.Join(btn.transform.DOScale(1f, flashDuration / 2));
+
+            yield return flash.WaitForCompletion();
+            yield return new WaitForSeconds(delayBetweenButtons);
+        }
+
+        SetPlayerInput(true);
+    }
+
+    private void SetPlayerInput(bool active)
+    {
+        foreach (ButtonData data in buttonData)
+        {
+            if (data.button != null)
+            {
+                data.button.interactable = active;
+            }
+        }
+    }
+
+
+
+
+
+
     // Flash a single button by index (0-3)
     public void FlashButton(int buttonIndex)
     {
