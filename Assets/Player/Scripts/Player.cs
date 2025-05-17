@@ -1,4 +1,6 @@
+using System;
 using DialogueSystem.Scripts;
+using RotateMinigame.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -88,6 +90,12 @@ namespace Player.Scripts
         private void OnDialogueEnded()
         {
             _canMove = true;
+        }
+
+        //TODO TEMP TO TEST
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            FindAnyObjectByType<RotateMiniGame>().OpenMiniGame();
         }
     }
 }
