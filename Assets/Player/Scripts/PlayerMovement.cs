@@ -64,7 +64,7 @@ namespace Player.Scripts
             _velocity.y = 0;
         }
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             _rb.linearVelocity = _velocity * movementSpeed * Time.fixedDeltaTime;
         }
