@@ -39,8 +39,11 @@ namespace Player.Scripts
 
         private void OnDestroy()
         {
-            DialogueBox.Instance.OnDialogueStarted -= OnDialogueStarted;
-            DialogueBox.Instance.OnDialogueEnded -= OnDialogueEnded;
+            if (DialogueBox.Instance != null)
+            {
+                DialogueBox.Instance.OnDialogueStarted -= OnDialogueStarted;
+                DialogueBox.Instance.OnDialogueEnded -= OnDialogueEnded;
+            }
         }
 
         private void OnMoveHorizontalTriggered(InputAction.CallbackContext context)

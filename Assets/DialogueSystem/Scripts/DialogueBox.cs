@@ -12,7 +12,26 @@ namespace DialogueSystem.Scripts
     {
         #region Singleton
 
-        public static DialogueBox Instance { get; private set; }
+        private static DialogueBox _instance;
+
+        public static DialogueBox Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindAnyObjectByType<DialogueBox>();
+                    if (_instance == null)
+                    {
+                        _instance = Instantiate(Resources.Load<DialogueBox>("DialogueSystem"));
+                    }
+
+                    DontDestroyOnLoad(_instance.gameObject);
+                }
+
+                return _instance;
+            }
+        }
 
         #endregion
 
@@ -38,8 +57,12 @@ namespace DialogueSystem.Scripts
         private void Awake()
         {
             _initialFadeValue = fadeBackground.color.a;
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (_instance == null)
+            {
+                _instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+
             fadeBackground.DOFade(0, 0);
         }
 
