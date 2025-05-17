@@ -66,7 +66,7 @@ namespace Player.Scripts
 
         private void LateUpdate()
         {
-            _rb.linearVelocity = _velocity * movementSpeed;
+            _rb.linearVelocity = _velocity * movementSpeed * Time.fixedDeltaTime;
         }
 
         private void OnDialogueStarted()
