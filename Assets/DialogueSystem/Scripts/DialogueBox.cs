@@ -133,7 +133,7 @@ namespace DialogueSystem.Scripts
         {
             frameCanvasGroup.DOFade(0, fadeAnimationTime * 1.5f);
             yield return new WaitForSeconds(0.1f);
-            yield return fadeBackground.DOFade(0, fadeAnimationTime * 1.5f).WaitForCompletion();
+            fadeBackground.DOFade(0, fadeAnimationTime * 1.5f);
             OnDialogueEnded?.Invoke();
             objectHolder.SetActive(false);
         }
