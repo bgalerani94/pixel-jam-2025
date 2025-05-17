@@ -1,3 +1,4 @@
+using DialogueSystem.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,8 @@ namespace Player.Scripts
         private InputAction _movementVerticalAction;
         private Vector2 _velocity;
 
+        private bool _canMove = true;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -29,17 +32,26 @@ namespace Player.Scripts
             _movementVerticalAction = playerInputMap.FindAction("MoveVertical");
             _movementVerticalAction.started += OnMoveVerticalTriggered;
             _movementVerticalAction.canceled += OnMoveVerticalEnded;
+
+            DialogueBox.Instance.OnDialogueStarted += OnDialogueStarted;
+            DialogueBox.Instance.OnDialogueEnded += OnDialogueEnded;
         }
 
         private void OnMoveHorizontalTriggered(InputAction.CallbackContext context)
         {
-            _velocity.x = context.ReadValue<Vector2>().x;
-            if (_velocity.x != 0) spriteRenderer.flipX = _velocity.x < 0;
+            if (_canMove)
+            {
+                _velocity.x = context.ReadValue<Vector2>().x;
+                if (_velocity.x != 0) spriteRenderer.flipX = _velocity.x < 0;
+            }
         }
 
         private void OnMoveVerticalTriggered(InputAction.CallbackContext context)
         {
-            _velocity.y = context.ReadValue<Vector2>().y;
+            if (_canMove)
+            {
+                _velocity.y = context.ReadValue<Vector2>().y;
+            }
         }
 
         private void OnMoveHorizontalEnded(InputAction.CallbackContext context)
@@ -55,6 +67,18 @@ namespace Player.Scripts
         private void LateUpdate()
         {
             _rb.linearVelocity = _velocity * movementSpeed;
+        }
+
+        private void OnDialogueStarted()
+        {
+            _canMove = false;
+            _velocity = Vector2.zero;
+            _rb.linearVelocity = _velocity;
+        }
+
+        private void OnDialogueEnded()
+        {
+            _canMove = true;
         }
     }
 }

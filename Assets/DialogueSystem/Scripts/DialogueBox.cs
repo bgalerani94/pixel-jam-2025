@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using TMPro;
@@ -9,6 +10,12 @@ namespace DialogueSystem.Scripts
 {
     public class DialogueBox : MonoBehaviour
     {
+        #region Singleton
+
+        public static DialogueBox Instance { get; private set; }
+
+        #endregion
+
         [Header("Params")]
         [SerializeField] private int maxCharactersAtOnce;
         [SerializeField] private float textSecondsInterval;
@@ -21,26 +28,31 @@ namespace DialogueSystem.Scripts
         [SerializeField] private TMP_Text dialogueText;
         [SerializeField] private BouncingUI bouncingArrow;
 
+        public bool CanShowDialogueBox => !objectHolder.activeSelf;
+
+        public event Action OnDialogueStarted;
+        public event Action OnDialogueEnded;
+
         private float _initialFadeValue;
-        private Coroutine _coroutine;
-
-
-        //TEMP Begin
-        [SerializeField] private Button testButton;
-        [SerializeField, TextArea] private string testText;
 
         private void Awake()
         {
-            testButton.onClick.AddListener(() => ShowText(testText));
             _initialFadeValue = fadeBackground.color.a;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        //TEMP End
 
         public void ShowText(string conversationText)
         {
-            if (_coroutine != null) StopCoroutine(_coroutine);
-
-            _coroutine = StartCoroutine(ShowDialogue(conversationText));
+            if (objectHolder.activeSelf)
+            {
+                Debug.LogWarning("Trying to open DialogueBox that is already opened.");
+            }
+            else
+            {
+                OnDialogueStarted?.Invoke();
+                StartCoroutine(ShowDialogue(conversationText));
+            }
         }
 
         private IEnumerator ShowDialogue(string conversationText)
@@ -49,19 +61,29 @@ namespace DialogueSystem.Scripts
 
             var textSize = conversationText.Length;
             var repetitions = Mathf.CeilToInt(textSize / (float)maxCharactersAtOnce);
+            var lastIndex = -1;
 
             for (var i = 0; i < repetitions; i++)
             {
                 dialogueText.text = string.Empty;
-                var startingIndex = i * maxCharactersAtOnce;
-                var textToShow = conversationText.Substring(startingIndex,
-                    Mathf.Min(maxCharactersAtOnce, conversationText.Length - startingIndex));
+                var startingIndex = lastIndex + 1;
+                lastIndex = Mathf.Min(maxCharactersAtOnce, conversationText.Length - startingIndex);
+                var textToShow = conversationText.Substring(startingIndex, lastIndex);
+                var lastSpaceIndex = textToShow.LastIndexOf(" ", StringComparison.Ordinal);
 
-                foreach (var character in textToShow)
+                if (lastIndex + startingIndex < textSize - 1)
                 {
+                    lastIndex = lastSpaceIndex > -1 ? lastSpaceIndex : lastIndex;
+                }
+
+                for (var j = 0; j < lastIndex; j++)
+                {
+                    var character = textToShow[j];
                     dialogueText.text += character;
                     yield return new WaitForSeconds(textSecondsInterval);
                 }
+
+                lastIndex += startingIndex;
 
                 bouncingArrow.Show();
                 yield return new WaitUntil(() => Keyboard.current.spaceKey.wasPressedThisFrame);
@@ -88,6 +110,7 @@ namespace DialogueSystem.Scripts
             frameCanvasGroup.DOFade(0, fadeAnimationTime * 1.5f);
             yield return new WaitForSeconds(0.1f);
             yield return fadeBackground.DOFade(0, fadeAnimationTime * 1.5f).WaitForCompletion();
+            OnDialogueEnded?.Invoke();
             objectHolder.SetActive(false);
         }
     }

@@ -391,11 +391,6 @@ MonoBehaviour:
   frameCanvasGroup: {fileID: 1512224289939084508}
   dialogueText: {fileID: 1743536099255351861}
   bouncingArrow: {fileID: 1334338909302208299}
-  testButton: {fileID: 0}
-  testText: "Mussum Ipsum, cacilds vidis litro abertis. Eu nunca mais boto a boca
-    num copo de cacha\xE7a, agora eu s\xF3 uso canudis! Nulla id gravida magna, ut
-    semper sapien. Delegadis gente finis, bibendum egestas augue arcu ut est. Sapien
-    in monti palavris qui num significa nadis i pareci latim."
 --- !u!223 &1864788468672521879
 Canvas:
   m_ObjectHideFlags: 0
