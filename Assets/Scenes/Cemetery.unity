@@ -724,7 +724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2748522850993699741, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.990637
+      value: 0.8795799
       objectReference: {fileID: 0}
     - target: {fileID: 4344724590404246767, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -732,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4344724590404246767, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.990637
+      value: 0.8795799
       objectReference: {fileID: 0}
     - target: {fileID: 9188909998240364602, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: Target.TrackingTarget
@@ -1152,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1884997699012521905, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.911057
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 1884997699012521905, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2113,6 +2113,56 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.5058022, y: 23.745064}
   m_EdgeRadius: 0
+--- !u!1 &1302972034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1302972036}
+  - component: {fileID: 1302972035}
+  m_Layer: 0
+  m_Name: CemeteryController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1302972035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302972034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642a7bb665c17d24d81df5be86d37ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToShowDialog: 0
+  introText: "Hark\u2026 at last thou hast come. Long hath this accursed sanctum
+    awaited thee. The dead murmur thy name, yet their voices are bound \u2018neath
+    the shroud of eternity. To tread further, thou must lend thine ear to their lamentations\u2026
+    and unearth that which shackles them hither. Seek ye the altar\u2026 lest the
+    night claim thee as well."
+--- !u!4 &1302972036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302972034}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1363474801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,6 +3100,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 444163813}
+  - {fileID: 1302972036}
   - {fileID: 833400154}
   - {fileID: 1473515423}
   - {fileID: 422215313}

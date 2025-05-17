@@ -18,7 +18,7 @@ namespace MainMenu.Scripts
 
         private void GoToGame()
         {
-            SceneManager.LoadScene("Cemitery");
+            SceneManager.LoadScene("Cemetery");
         }
     }
 }

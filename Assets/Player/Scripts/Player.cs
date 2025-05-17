@@ -91,11 +91,5 @@ namespace Player.Scripts
         {
             _canMove = true;
         }
-
-        //TODO TEMP TO TEST
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            FindAnyObjectByType<RotateMiniGame>().OpenMiniGame();
-        }
     }
 }
