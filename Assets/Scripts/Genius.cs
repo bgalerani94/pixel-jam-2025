@@ -53,8 +53,8 @@ public class GeniusEngine : MonoBehaviour
 
             //aqui o jogador vai ter que digitar os numeros
             //round 1 = 1 numero, round 2 = 2 numeros e assim por diante
-            List<int> resposta = new List<int>(); //chama a função jogada passando o round atual    
-            yield return StartCoroutine(jogada(i, resp=>resposta=resp)); // Chama a função jogada e espera até que o jogador tenha inserido os números        
+            List<int> resposta = new List<int>();  
+            yield return StartCoroutine(jogada(i, resp=>resposta=resp)); // Chama a função jogada passando o round atual e espera até que o jogador tenha inserido os números        
 
 
             //esse if é pra validar o acerto e caso negativo incrementar a falha e voltar um round
