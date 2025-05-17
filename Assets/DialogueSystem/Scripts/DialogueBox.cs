@@ -40,6 +40,7 @@ namespace DialogueSystem.Scripts
             _initialFadeValue = fadeBackground.color.a;
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            fadeBackground.DOFade(0, 0);
         }
 
         public void ShowText(string conversationText)

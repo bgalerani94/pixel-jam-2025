@@ -6,7 +6,7 @@ namespace Player.Scripts
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(BoxCollider2D))]
-    public class PlayerMovement : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [Header("Parameters")]
         [SerializeField] private float movementSpeed = 5f;
@@ -35,6 +35,12 @@ namespace Player.Scripts
 
             DialogueBox.Instance.OnDialogueStarted += OnDialogueStarted;
             DialogueBox.Instance.OnDialogueEnded += OnDialogueEnded;
+        }
+
+        private void OnDestroy()
+        {
+            DialogueBox.Instance.OnDialogueStarted -= OnDialogueStarted;
+            DialogueBox.Instance.OnDialogueEnded -= OnDialogueEnded;
         }
 
         private void OnMoveHorizontalTriggered(InputAction.CallbackContext context)
