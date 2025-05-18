@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cd227a5281ec1594491bd7b807038edb
+guid: 513a8a2dc8153724d88b1270595477fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9172674168120322495
-    second: Parede Esquerda Igreja_0
+      213: 827961967697381273
+    second: Coffin Room_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Parede Esquerda Igreja_0
+      name: Coffin Room_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 220
+        width: 400
+        height: 458
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14659c8617d14b080800000000000000
-      internalID: -9172674168120322495
+      spriteID: 997c22cd5038d7b00800000000000000
+      internalID: 827961967697381273
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Parede Esquerda Igreja_0: -9172674168120322495
+      Coffin Room_0: 827961967697381273
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

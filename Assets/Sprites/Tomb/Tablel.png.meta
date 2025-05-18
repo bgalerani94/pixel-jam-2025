@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cd227a5281ec1594491bd7b807038edb
+guid: 633e8440bdfa2ba4298a9caf0613b37e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9172674168120322495
-    second: Parede Esquerda Igreja_0
+      213: 3467577959791891136
+    second: Tablel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Parede Esquerda Igreja_0
+      name: Tablel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 220
+        width: 25
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14659c8617d14b080800000000000000
-      internalID: -9172674168120322495
+      spriteID: 0c29e5c48cf4f1030800000000000000
+      internalID: 3467577959791891136
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Parede Esquerda Igreja_0: -9172674168120322495
+      Tablel_0: 3467577959791891136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
