@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using DialogueSystem.Scripts;
 using RotateMinigame.Scripts;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +13,8 @@ namespace Tomb
         [SerializeField, TextArea] private string introDialogue;
         [SerializeField, TextArea] private string endingDialogue;
         [SerializeField] private List<Reward> rewards;
+        [SerializeField] private Player.Scripts.Player player;
+        [SerializeField] private CinemachineVirtualCameraBase virtualCameraBase;
 
         private int _rewardsCount;
 
@@ -30,8 +34,14 @@ namespace Tomb
         {
             if (++_rewardsCount >= rewards.Count)
             {
-                DialogueBox.Instance.OnDialogueEnded += OnFinalDialogEnded;
-                DialogueBox.Instance.ShowText(endingDialogue);
+                player.CanMove = false;
+                virtualCameraBase.Follow = null;
+                virtualCameraBase.transform.DOShakePosition(1.3f, Vector3.one * 0.7f)
+                    .OnComplete(() =>
+                    {
+                        DialogueBox.Instance.OnDialogueEnded += OnFinalDialogEnded;
+                        DialogueBox.Instance.ShowText(endingDialogue);
+                    });
             }
         }
 

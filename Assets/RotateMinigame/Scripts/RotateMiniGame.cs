@@ -12,6 +12,8 @@ namespace RotateMinigame.Scripts
         [Header("Parameters")]
         [SerializeField] private float showAnimTime;
         [SerializeField] private float rotateAnimTime;
+        [SerializeField] private float minPieceSoundPitch;
+        [SerializeField] private float maxPieceSoundPitch;
 
         [Header("Components")]
         [SerializeField] private Player.Scripts.Player player;
@@ -20,6 +22,7 @@ namespace RotateMinigame.Scripts
         [SerializeField] private List<Button> pieces;
         [SerializeField] private BoxCollider2D pillarCollider;
         [SerializeField] private GameObject pillarReward;
+        [SerializeField] private AudioSource audioSource;
 
         private readonly List<int> _pieceRotations = new() { 90, 180, 270 };
 
@@ -67,6 +70,10 @@ namespace RotateMinigame.Scripts
 
         private IEnumerator RotatePiece(Button pieceButton)
         {
+            var pitchSound = Random.Range(minPieceSoundPitch, maxPieceSoundPitch);
+            audioSource.pitch = pitchSound;
+            audioSource.Play();
+
             var piece = pieceButton.GetComponent<RectTransform>();
             canvasGroup.interactable = false;
             var currentRotation = (piece.rotation.eulerAngles.z - 90) % 360;
