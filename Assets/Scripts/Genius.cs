@@ -54,41 +54,28 @@ public class GeniusEngine : MonoBehaviour
 
     public IEnumerator jogar(List<int> gerados)
     {
-
         int falha = 0; //quantas chances o jogador tem
-
         // Esse for vai controlar a leitura dos numeros por round
         // Talvez remover esse for (ou substituir) pra validar se o jogador acertou os números
         for (int i = 1; i <= 5; i++)//quantidade de rounds
         {
-
             if (i == 1)
             {
                 yield return Colours.StartAnimation();
             }
-
-
             List<int> subsequencia = gerados.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
-
-            /*
-            ***************************************************************************
-            * Aqui seria a animação do jogo, onde o jogador vai ver as cores piscando *
-            ***************************************************************************
-            */
             yield return Colours.PlaySequenceAnimation(subsequencia);
-
-
-
             //aqui o jogador vai ter que digitar os numeros
             //round 1 = 1 numero, round 2 = 2 numeros e assim por diante
             List<int> resposta = new List<int>();
             yield return StartCoroutine(jogada(i, subsequencia, resp => resposta = resp)); //Chama a jogada passando o round atual e espera até que o jogador insira os números        
-
             //esse if é pra validar o acerto e caso negativo incrementar a falha e voltar um round
             if (!subsequencia.SequenceEqual(resposta))
             {
                 falha++;
-                i--; //aqui decrementa o i pra repetir o round      
+                i--; //aqui decrementa o i pra repetir o round 
+                yield return new WaitForSeconds(0.3f); // Espera 1 segundo entre os rounds
+                yield return Colours.FullAnimation(1);     
                 if (falha == 3)//aqui só aceitamos 3 falhas como exemplo, só alterar esse valor que mudamos quantas falhas serão aceitas
                 {
                     break; // Sai do loop se o jogador falhar 3 vezes
@@ -97,6 +84,6 @@ public class GeniusEngine : MonoBehaviour
             resposta.Clear();// O player precisa entrar com todas as cores em cada round, não só a última
             yield return new WaitForSeconds(0.5f); // Espera 1 segundo entre os rounds
         }
-        yield return Colours.WinAnimation();
+        yield return Colours.FullAnimation(3);
     }
 }

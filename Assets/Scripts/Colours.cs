@@ -69,10 +69,10 @@ public class Colours : MonoBehaviour
         SetPlayerInput(true);
     }
 
-        public IEnumerator WinAnimation()
+        public IEnumerator FullAnimation(int n)
     {
         SetPlayerInput(false);
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < 4; j++)
             {
