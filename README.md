@@ -27,11 +27,16 @@ Developers: Allan Fini, Bruno Galerani, Felipe Bigatto
 
 Pixel Art: Allan Fini
 
-Music & SFX: www.kenney.nl, Brick-Drag-Concrete-06.wav by DWOBoyle -- https://freesound.org/s/145705/
+Music & SFX:
+- www.kenney.nl
+- Brick-Drag-Concrete-06.wav by DWOBoyle -- https://freesound.org/s/145705/
+- Groove Loop #1 by danlucaz -- https://freesound.org/s/513957/
 
-Fonts: https://www.dafont.com/pixeloid-sans.font, https://www.dafont.com/alagard.font
+Fonts:
+- https://www.dafont.com/pixeloid-sans.font, https://www.dafont.com/alagard.font
 
-Color Palette: https://lospec.com/palette-list/dungeon-20
+Color Palette:
+- https://lospec.com/palette-list/dungeon-20
 
 # Special Thanks:
 
