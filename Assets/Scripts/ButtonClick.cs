@@ -21,7 +21,7 @@ public class ButtonClickHandler : MonoBehaviour
 
     private void OnButtonClick()
     {
-        
+
         // Get the button's unique highlight color from Colours
         Color highlightColor = coloursController.GetHighlightColor(buttonIndex);
 
@@ -35,5 +35,6 @@ public class ButtonClickHandler : MonoBehaviour
         // Call your existing button press logic
         //Object.FindFirstObjectByType<GButtons>().Press(buttonIndex);
         clickSequence.Play();
+        coloursController.PlayAudio(buttonIndex);
     }
 }

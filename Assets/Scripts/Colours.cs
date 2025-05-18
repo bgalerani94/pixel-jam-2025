@@ -17,6 +17,10 @@ public class Colours : MonoBehaviour
 
     }
 
+    public AudioSource audioSource;
+    public AudioClip vitoria;
+    public AudioClip derrota;
+
     public ButtonData[] buttonData = new ButtonData[4]; // Array for 4 buttons
     
     private Color[] originalColors;
@@ -37,6 +41,12 @@ public class Colours : MonoBehaviour
         if (buttonIndex < 0 || buttonIndex >= buttonData.Length)
             return Color.white;
         return buttonData[buttonIndex].highlightColor;
+    }
+    public void PlayAudio(int buttonIndex)
+    {
+        if (buttonIndex >= 0 && buttonIndex < buttonData.Length){
+            buttonData[buttonIndex].sound.Play();
+        }            
     }
 
 
@@ -68,19 +78,29 @@ public class Colours : MonoBehaviour
             giro.Append(botaoImage.DOColor(originalColors[i], flashDuration * 0.8f));
             giro.Join(botao.transform.DOScale(1f, flashDuration * 0.8f));
 
-                        if (buttonData[i].sound != null)
-                        {
-                            buttonData[i].sound.Play();
-                        }
+            if (buttonData[i].sound != null)
+            {
+                buttonData[i].sound.Play();
+            }
 
             yield return new WaitForSeconds(0.2f);
         }
         yield return new WaitForSeconds(0.5f); //adicionei esse delay pra animação de abertura nao confundir o jogador com a animação de resposta esperada
     }
 
-        public IEnumerator FullAnimation(int n)
+    public IEnumerator FullAnimation(int n, bool end)
     {
         SetPlayerInput(false);
+        if (end)
+        {
+            audioSource.clip = derrota;
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.clip = vitoria;
+            audioSource.Play();
+        }
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < 4; j++)
@@ -97,6 +117,9 @@ public class Colours : MonoBehaviour
             }
             yield return new WaitForSeconds(0.3f);
         }
+
+
+
         //SetPlayerInput(true);
     }
 
