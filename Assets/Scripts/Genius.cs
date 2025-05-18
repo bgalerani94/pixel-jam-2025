@@ -61,9 +61,14 @@ public class GeniusEngine : MonoBehaviour
         // Talvez remover esse for (ou substituir) pra validar se o jogador acertou os números
         for (int i = 1; i <= 5; i++)//quantidade de rounds
         {
+
+            if (i == 1)
+            {
+                yield return Colours.StartAnimation();
+            }
+
+
             List<int> subsequencia = gerados.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
-
-
 
             /*
             ***************************************************************************
@@ -92,5 +97,6 @@ public class GeniusEngine : MonoBehaviour
             resposta.Clear();// O player precisa entrar com todas as cores em cada round, não só a última
             yield return new WaitForSeconds(0.5f); // Espera 1 segundo entre os rounds
         }
+        yield return Colours.WinAnimation();
     }
 }
