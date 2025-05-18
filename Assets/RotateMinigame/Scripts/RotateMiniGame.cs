@@ -14,6 +14,7 @@ namespace RotateMinigame.Scripts
         [SerializeField] private float rotateAnimTime;
 
         [Header("Components")]
+        [SerializeField] private Player.Scripts.Player player;
         [SerializeField] private GameObject gameHolder;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private List<Button> pieces;
@@ -29,6 +30,7 @@ namespace RotateMinigame.Scripts
 
         public void OpenMiniGame()
         {
+            player.CanMove = false;
             _correctCount = 0;
             canvasGroup.interactable = false;
             canvasGroup.alpha = 0;
@@ -53,6 +55,7 @@ namespace RotateMinigame.Scripts
         {
             canvasGroup.DOFade(0, showAnimTime).OnComplete(() =>
             {
+                player.CanMove = true;
                 canvasGroup.interactable = false;
                 gameHolder.SetActive(false);
             });
