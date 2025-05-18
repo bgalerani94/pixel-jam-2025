@@ -66,7 +66,7 @@ namespace DialogueSystem.Scripts
             fadeBackground.DOFade(0, 0);
         }
 
-        public void ShowText(string conversationText)
+        public void ShowText(string conversationText, bool fade = true)
         {
             if (objectHolder.activeSelf)
             {
@@ -75,13 +75,13 @@ namespace DialogueSystem.Scripts
             else
             {
                 OnDialogueStarted?.Invoke();
-                StartCoroutine(ShowDialogue(conversationText));
+                StartCoroutine(ShowDialogue(conversationText, fade));
             }
         }
 
-        private IEnumerator ShowDialogue(string conversationText)
+        private IEnumerator ShowDialogue(string conversationText, bool fade = true)
         {
-            yield return ShowUI();
+            yield return ShowUI(fade);
 
             var textSize = conversationText.Length;
             var repetitions = Mathf.CeilToInt(textSize / (float)maxCharactersAtOnce);
@@ -131,14 +131,14 @@ namespace DialogueSystem.Scripts
             yield return HideUI();
         }
 
-        private IEnumerator ShowUI()
+        private IEnumerator ShowUI(bool fade = true)
         {
             dialogueText.text = string.Empty;
             fadeBackground.DOFade(0, 0);
             frameCanvasGroup.alpha = 0;
             objectHolder.SetActive(true);
 
-            fadeBackground.DOFade(_initialFadeValue, fadeAnimationTime);
+            if (fade) fadeBackground.DOFade(_initialFadeValue, fadeAnimationTime);
             yield return new WaitForSeconds(0.15f);
             yield return frameCanvasGroup.DOFade(1, fadeAnimationTime).WaitForCompletion();
         }
