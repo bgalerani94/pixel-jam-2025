@@ -78,7 +78,11 @@ namespace Cemetery.Scripts
             passwordInputField.text = string.Empty;
             gameHolder.SetActive(true);
 
-            canvasGroup.DOFade(1, .35f).OnComplete(() => canvasGroup.interactable = true);
+            canvasGroup.DOFade(1, .35f).OnComplete(() =>
+            {
+                canvasGroup.interactable = true;
+                passwordInputField.ActivateInputField();
+            });
         }
 
         private void HidePasswordPuzzle()
