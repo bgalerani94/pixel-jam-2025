@@ -622,6 +622,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8032334961711560479, guid: 3d36a1343ab26e54c900cf485bb40b45, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -30.897217
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -923,7 +927,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c969368813af266448280abf75f50f0c, type: 3}
   m_Resource: {fileID: 8300000, guid: c969368813af266448280abf75f50f0c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.478
+  m_Volume: 0.336
   m_Pitch: 1
   Loop: 1
   Mute: 0
