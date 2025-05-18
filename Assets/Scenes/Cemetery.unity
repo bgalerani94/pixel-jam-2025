@@ -298,6 +298,7 @@ MonoBehaviour:
   errorBorder: {fileID: 2047541453}
   closeButton: {fileID: 2060301976}
   player: {fileID: 1727115748}
+  virtualCameraBase: {fileID: 444163815}
 --- !u!114 &52193939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1785,7 +1786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 989126214878342073, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.08120649
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 989126214878342073, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
@@ -1793,7 +1794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 989126214878342073, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.83526677
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1878943633457625105, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1865,6 +1866,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 989126214878342073, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
   m_PrefabInstance: {fileID: 444163813}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &444163815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9188909998240364602, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
+  m_PrefabInstance: {fileID: 444163813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &455089170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,7 +3285,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.011995316, y: 0.0018959045}
+  m_Offset: {x: 0.011995554, y: -0.17735803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3283,7 +3295,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.3924184, y: 2.2320733}
+  m_Size: {x: 1.4449339, y: 1.8735654}
   m_EdgeRadius: 0
 --- !u!114 &1074654002
 MonoBehaviour:

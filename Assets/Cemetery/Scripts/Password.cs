@@ -1,5 +1,6 @@
 using DG.Tweening;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,7 @@ namespace Cemetery.Scripts
         [SerializeField] private GameObject errorBorder;
         [SerializeField] private Button closeButton;
         [SerializeField] private Player.Scripts.Player player;
+        [SerializeField] private CinemachineVirtualCameraBase virtualCameraBase;
 
         private bool _isShowing;
         private bool _canInteract;
@@ -43,7 +45,15 @@ namespace Cemetery.Scripts
             {
                 if (IsPasswordCorrect())
                 {
-                    SceneManager.LoadScene("Tomb");
+                    player.CanMove = false;
+                    virtualCameraBase.Follow = null;
+
+                    var sequence = DOTween.Sequence();
+                    sequence.Append(canvasGroup.DOFade(0, .3f));
+                    sequence.Append(virtualCameraBase.transform.DOShakePosition(1.3f, Vector3.one * 0.7f));
+                    sequence.AppendInterval(0.2f);
+                    sequence.OnComplete(() => SceneManager.LoadScene("Tomb"));
+                    sequence.Play();
                 }
                 else
                 {
