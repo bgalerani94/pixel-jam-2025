@@ -488,7 +488,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 988.53}
+  m_SizeDelta: {x: 0, y: 1121.95}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &299837485
 MonoBehaviour:
@@ -713,7 +713,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1047431621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.14013737}
+  m_AnchorMin: {x: 0, y: 0.24239045}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 477566310}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.8598626
+  m_Size: 0.75760955
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2067,7 +2067,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 626.5, y: -203}
-  m_SizeDelta: {x: 1153, y: 755.53}
+  m_SizeDelta: {x: 1153, y: 888.95}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2135774355
 MonoBehaviour:
@@ -2106,23 +2106,30 @@ MonoBehaviour:
   m_text: 'Here we will talk a little about each of the members who dedicated their
     almost unexistent free time on this project.
 
+    
 
-    First we have Allan, our incredible
-    pixel artist...
+    First we have Allan,
+    our incredible pixel artist and sound designer
 
+    
 
-    We also have Bruno, our programmer
+    We also have Bruno,
+    our programmer who worked on the overall game mechanics and integrations
 
+    
 
-    And last, but
-    not least, we have Bigas. It was Bigas'' first experience with coding...
+    And
+    last, but not least, we have Bigas. It was Bigas'' first experience with coding.
+    He coded the entire Genius Mini Game mechanics
 
+    
 
-    We
-    would also like to thank every and each one who dedicated a moment to play our
-    game. We didn''t have much time to work on it, but we tried to make it as fun
-    as possible with our current time limitation.
+    We would also like
+    to thank every and each one who dedicated a moment to play our game. We didn''t
+    have much time to work on it, but we tried to make it as fun as possible with
+    our current time limitation.
 
+    
 
     Thank you so much! '
   m_isRightToLeft: 0
