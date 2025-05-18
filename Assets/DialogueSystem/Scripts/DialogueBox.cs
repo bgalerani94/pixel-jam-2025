@@ -102,7 +102,21 @@ namespace DialogueSystem.Scripts
 
                 for (var j = 0; j < lastIndex; j++)
                 {
-                    var character = textToShow[j];
+                    var character = textToShow[j].ToString();
+                    if (character == "<")
+                    {
+                        if (textToShow[j + 1] == '/')
+                        {
+                            character = "</b>";
+                            j += 3;
+                        }
+                        else
+                        {
+                            character = "<b>";
+                            j += 2;
+                        }
+                    }
+
                     dialogueText.text += character;
                     yield return new WaitForSeconds(textSecondsInterval);
                 }
