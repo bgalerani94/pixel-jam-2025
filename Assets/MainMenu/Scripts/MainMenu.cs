@@ -12,6 +12,7 @@ namespace MainMenu.Scripts
 
         private void Start()
         {
+            QualitySettings.vSyncCount = 1;
             playButton.onClick.AddListener(GoToGame);
             aboutUsButton.onClick.AddListener(aboutUsPanel.Show);
         }
