@@ -29,6 +29,10 @@ Pixel Art: Allan Fini
 
 Music & SFX: www.kenney.nl, Brick-Drag-Concrete-06.wav by DWOBoyle -- https://freesound.org/s/145705/
 
+Fonts: https://www.dafont.com/pixeloid-sans.font, https://www.dafont.com/alagard.font
+
+Color Palette: https://lospec.com/palette-list/dungeon-20
+
 # Special Thanks:
 
 itch.io for hosting Pixel Game Jam 2025!
