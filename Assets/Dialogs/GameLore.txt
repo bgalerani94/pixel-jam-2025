@@ -1,55 +1,55 @@
 1. Introduction Dialogue
-(The game begins in a desolate church, its pews rotten, its windows shattered. A gaunt figure—the Necromancer—materializes from the gloom.)
+(The game begins in a dimly lit church. A shadowy figure—the Necromancer—emerges from the mist.)
 
 Necromancer:
-"Hark… at last thou hast come. Long hath this accursed sanctum awaited thee. The dead murmur thy name, yet their voices are bound ‘neath the shroud of eternity. To tread further, thou must lend thine ear to their lamentations… and unearth that which shackles them hither. Seek ye the altar… lest the night claim thee as well."
+"Ah… you’ve arrived at last. This cursed place has been waiting for you. The dead whisper your name, but their voices are trapped behind the veil. To move forward, you must listen to their stories… and uncover what binds them here. The answers lie beyond the altar. Go now—before the night claims you as well."
 
-(With a hollow laugh, the Necromancer dissolves into mist.)
+(The Necromancer vanishes into the fog.)
 
 2. Dialogue Hinting to Go to the Altar
-(A spectral whisper curls through the air as the player explores:)
+(As the player explores the church, the Necromancer’s voice echoes faintly:)
 
-Necromancer (murmuring):
-"The altar… it beareth the first truth. Lay thine hand upon it, and the path shall be unveiled."
+Necromancer (whispering):
+"The altar… it holds the first truth. Place your hand upon it, and the path will reveal itself."
 
 3. Altar Interaction Dialogue
-(Upon touching the altar, eldritch runes flare to life, their message glowing faintly:)
+(Upon interacting with the altar, an eerie glow illuminates an inscription:)
 
 Altar Inscription:
-"The gate to the sepulcher is barred, yet the dead recall the key. Five souls slumber here, each clutching a fragment of their doom. Heed their tales, and the word of passage shall be thine."
+"The gate to the tomb is sealed, but the dead remember the key. Five souls rest here, each holding a fragment of the past. Listen to their tales, and the word of passage shall be yours."
 
 4. Tombstone Dialogues (Letters: D, E, A, T, H)
 Tombstone 1 (D):
-"Once a scholar was I, drunk upon the wine of forbidden lore. The Necromancer offered me dominion… yet his sorcery reduced my bones to ash. Remember me… and take thou this: D."
+"I was a scholar, consumed by my thirst for forbidden knowledge. The Necromancer offered me power… but his magic turned my bones to dust. Remember me… and take this: D."
 
 Tombstone 2 (E):
-"A knight sworn to shield the meek, yet when the grave’s children rose, my steel betrayed me. The Necromancer’s hex left me to fester in mine own mail. My bequest to thee: E."
+"A knight, sworn to protect the innocent. Yet when the undead rose, my blade failed me. The Necromancer’s curse left me to rot in my own armor. My gift to you: E."
 
 Tombstone 3 (A):
-"A thief, I was—fool enough to pilfer from Death’s own coffers. The Necromancer ensnared me… and made of me a trinket in his gallery. Take this rune, and flee whilst thou canst: A."
+"A thief, I was. Thought I could steal from death itself. The Necromancer caught me… and made me part of his collection. Take this letter, and flee while you can: A."
 
 Tombstone 4 (T):
-"A maiden of the cloth, I prayed for deliverance. Yet the Necromancer’s blight warped my faith into torment. Now, I am but a sigh upon the wind. Heed me: T."
+"A priestess, I prayed for salvation. But the Necromancer’s curse twisted my faith into despair. Now, I am but a voice in the wind. Hear me: T."
 
 Tombstone 5 (H):
-"A child lost in the mist. The Necromancer vowed to guide me home… yet home was ever a phantasm. Remember my plight… and take thou this: H."
+"A child, lost in the fog. The Necromancer promised to lead me home… but home was never real. Remember my name… and take this: H."
 
 5. Gate Opening Dialogue
-(As the player inscribes "DEATH," the gate groans open, revealing a stairway into darkness.)
+(After entering "DEATH," the gate creaks open, revealing a descending path.)
 
 Necromancer (echoing):
-"Thou hast proven worthy… yet the final trial awaiteth. Descend, and behold what thou hast wrought."
+"You’ve done well… but the true test lies ahead. Enter, and face what you have wrought."
 
 6. Tomb Chamber Dialogue (Minigame Instruction)
-(Within the tomb, two ancient altars flank a sarcophagus, their surfaces writhing with spectral flames.)
+(Inside, the Necromancer’s tomb sits between two glowing altars.)
 
-Necromancer (voice thunderous):
-"Two altars remain, each a shackle upon mine—nay, thine—eternal torment. Unravel their enigmas, and the curse shall be sundered. Fail… and thou shalt join the chorus of the damned."
+Necromancer (voice booming):
+"Two altars remain, each a piece of the curse that binds me—and you. Solve their puzzles, and the cycle ends. Fail… and you join the others forever."
 
 7. Endgame Dialogue
-(Upon completing the minigames, the Necromancer’s visage cracks like porcelain, revealing a grotesque truth beneath.)
+(After completing the minigames, the Necromancer’s form shatters, revealing a ghastly truth.)
 
-Necromancer (voice now the player’s own):
-"At last… thou seest. Never wert thou among the living. Thou art the final specter bound here—mine own* soul. The curse is broken… and we… are… released."*
+Necromancer (fading, now in the player’s own voice):
+"At last… you see. You were never the living. You are the last soul trapped here—my soul. The curse is broken… and we… are… free."
 
-(The tomb collapses into oblivion, the screen fading into blinding white.)
+(The screen fades to white as the tomb crumbles into dust.)
