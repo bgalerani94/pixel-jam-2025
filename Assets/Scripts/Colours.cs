@@ -12,6 +12,9 @@ public class Colours : MonoBehaviour
     {
         public Button button;
         public Color highlightColor = Color.white;
+
+        public AudioSource sound;
+
     }
 
     public ButtonData[] buttonData = new ButtonData[4]; // Array for 4 buttons
@@ -64,6 +67,12 @@ public class Colours : MonoBehaviour
             giro.Join(botao.transform.DOScale(1.1f, flashDuration * 0.8f));
             giro.Append(botaoImage.DOColor(originalColors[i], flashDuration * 0.8f));
             giro.Join(botao.transform.DOScale(1f, flashDuration * 0.8f));
+
+                        if (buttonData[i].sound != null)
+                        {
+                            buttonData[i].sound.Play();
+                        }
+
             yield return new WaitForSeconds(0.2f);
         }
         yield return new WaitForSeconds(0.5f); //adicionei esse delay pra animação de abertura nao confundir o jogador com a animação de resposta esperada
@@ -102,6 +111,11 @@ public class Colours : MonoBehaviour
             Button btn = buttonData[buttonIndex - 1].button;
             Image btnImage = btn.image;
             Color highlight = buttonData[buttonIndex - 1].highlightColor;
+
+            if (buttonData[buttonIndex - 1].sound != null)
+            {
+                buttonData[buttonIndex - 1].sound.Play();
+            }
 
             Sequence flash = DOTween.Sequence();
             flash.Append(btnImage.DOColor(highlight, flashDuration / 2));
