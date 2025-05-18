@@ -60,10 +60,10 @@ public class Colours : MonoBehaviour
             Color highlight = buttonData[i].highlightColor;
 
             Sequence giro = DOTween.Sequence();
-            giro.Append(botaoImage.DOColor(highlight, flashDuration / 2));
-            giro.Join(botao.transform.DOScale(1.1f, flashDuration / 2));
-            giro.Append(botaoImage.DOColor(originalColors[i], flashDuration / 2));
-            giro.Join(botao.transform.DOScale(1f, flashDuration / 2));
+            giro.Append(botaoImage.DOColor(highlight, flashDuration*1.2f));
+            giro.Join(botao.transform.DOScale(1.1f, flashDuration*1.2f));
+            giro.Append(botaoImage.DOColor(originalColors[i], flashDuration*1.2f));
+            giro.Join(botao.transform.DOScale(1f, flashDuration*1.2f));
             yield return new WaitForSeconds(0.3f);
         }
         SetPlayerInput(true);
