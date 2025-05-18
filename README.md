@@ -1,7 +1,7 @@
 # From the Dead
 A pixel-art horror puzzle game
 Developed by Allan Fini, Bruno Galerani, Felipe Bigatto
-Made for Pixel Game Jam 2025
+Made for Pixel Game Jam 2025 using Unity 6.1
 
 # Game Description
 "From the Dead" is a gothic horror adventure where you awaken in a cursed church, guided by a mysterious Necromancer. Solve cryptic riddles, uncover the tragic tales of the restless dead, and break an ancient curse—before it claims you forever.
