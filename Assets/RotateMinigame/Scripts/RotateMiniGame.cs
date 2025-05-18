@@ -18,6 +18,8 @@ namespace RotateMinigame.Scripts
         [SerializeField] private GameObject gameHolder;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private List<Button> pieces;
+        [SerializeField] private BoxCollider2D pillarCollider;
+        [SerializeField] private GameObject pillarReward;
 
         private readonly List<int> _pieceRotations = new() { 90, 180, 270 };
 
@@ -55,6 +57,8 @@ namespace RotateMinigame.Scripts
         {
             canvasGroup.DOFade(0, showAnimTime).OnComplete(() =>
             {
+                pillarReward.SetActive(true);
+                pillarCollider.enabled = false;
                 player.CanMove = true;
                 canvasGroup.interactable = false;
                 gameHolder.SetActive(false);
