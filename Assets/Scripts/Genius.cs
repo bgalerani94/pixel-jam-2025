@@ -3,17 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using DG.Tweening;
 
 public class GeniusEngine : MonoBehaviour
 {
     private List<int> numeros = new List<int>();
     public int playerinput = -1;
     public Colours Colours;
+    public CanvasGroup canvasGroup;
+    public GameObject gameHolder;
+    public Player.Scripts.Player player;
+    public BoxCollider2D pillarCollider;
+    public GameObject pillarReward;
+
+    public void StartGame()
+    {
+        player.CanMove = false;
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        gameHolder.SetActive(true);
+        canvasGroup.DOFade(1, 1).OnComplete(() =>
+        {
+            canvasGroup.interactable = true;
+            setNumeros();
+            StartCoroutine(jogar(getNumeros()));
+        });
+    }
+
+    private void EndGame()
+    {
+        canvasGroup.DOFade(0, 1).OnComplete(() =>
+        {
+            pillarReward.SetActive(true);
+            pillarCollider.enabled = false;
+            player.CanMove = true;
+            gameHolder.SetActive(false);
+        });
+    }
 
     public void setNumeros()
     {
         this.numeros.Clear(); // Limpa a lista antes de adicionar novos números
-        for (int i = 0; i < 5; i++)// Gera 5 números aleatórios
+        for (int i = 0; i < 5; i++) // Gera 5 números aleatórios
         {
             // Gera números aleatórios de 1 a 4 (1 = azul, 2 = amarelo, 3 = vermelho, 4 = verde)
             this.numeros.Add(UnityEngine.Random.Range(1, 5));
@@ -48,42 +79,50 @@ public class GeniusEngine : MonoBehaviour
                 playerinput = -1;
             }
         }
+
         callback(resp);
         yield return null;
     }
 
     public IEnumerator jogar(List<int> gerados)
     {
-        int falha = 0; //quantas chances o jogador tem
+        // int falha = 0; //quantas chances o jogador tem
         // Esse for vai controlar a leitura dos numeros por round
         // Talvez remover esse for (ou substituir) pra validar se o jogador acertou os números
-        for (int i = 1; i <= 5; i++)//quantidade de rounds
+        for (int i = 1; i <= 5; i++) //quantidade de rounds
         {
             if (i == 1)
             {
                 yield return Colours.StartAnimation();
             }
-            List<int> subsequencia = gerados.GetRange(0, i);//Armazena os numeros gerados adicionando um a cada round
+
+            List<int> subsequencia = gerados.GetRange(0, i); //Armazena os numeros gerados adicionando um a cada round
             yield return Colours.PlaySequenceAnimation(subsequencia);
             //aqui o jogador vai ter que digitar os numeros
             //round 1 = 1 numero, round 2 = 2 numeros e assim por diante
             List<int> resposta = new List<int>();
-            yield return StartCoroutine(jogada(i, subsequencia, resp => resposta = resp)); //Chama a jogada passando o round atual e espera até que o jogador insira os números        
+            yield return
+                StartCoroutine(jogada(i, subsequencia,
+                    resp => resposta =
+                        resp)); //Chama a jogada passando o round atual e espera até que o jogador insira os números        
             //esse if é pra validar o acerto e caso negativo incrementar a falha e voltar um round
             if (!subsequencia.SequenceEqual(resposta))
             {
-                falha++;
+                // falha++;
                 i--; //aqui decrementa o i pra repetir o round 
                 yield return new WaitForSeconds(0.3f); // Espera 1 segundo entre os rounds
-                yield return Colours.FullAnimation(1);     
-                if (falha == 3)//aqui só aceitamos 3 falhas como exemplo, só alterar esse valor que mudamos quantas falhas serão aceitas
-                {
-                    break; // Sai do loop se o jogador falhar 3 vezes
-                }
+                yield return Colours.FullAnimation(1);
+                // if (falha == 3) //aqui só aceitamos 3 falhas como exemplo, só alterar esse valor que mudamos quantas falhas serão aceitas
+                // {
+                //     break; // Sai do loop se o jogador falhar 3 vezes
+                // }
             }
-            resposta.Clear();// O player precisa entrar com todas as cores em cada round, não só a última
+
+            resposta.Clear(); // O player precisa entrar com todas as cores em cada round, não só a última
             yield return new WaitForSeconds(0.5f); // Espera 1 segundo entre os rounds
         }
+
         yield return Colours.FullAnimation(3);
+        EndGame();
     }
 }
