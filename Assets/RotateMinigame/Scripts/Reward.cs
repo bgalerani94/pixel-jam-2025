@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,12 +10,16 @@ namespace RotateMinigame.Scripts
         [SerializeField] private float scaleAnimTime;
         [SerializeField] private float loopAnimTime;
 
+        public event Action OnCollected;
+        
         private void OnEnable()
         {
             transform.DOScale(Vector3.one, scaleAnimTime);
             transform.DOLocalMoveY(transform.localPosition.y + yLoopMovementAmount, loopAnimTime)
                 .SetEase(Ease.InOutCubic)
                 .SetLoops(-1, LoopType.Yoyo);
+            
+            OnCollected?.Invoke();
         }
     }
 }

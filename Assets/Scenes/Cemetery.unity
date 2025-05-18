@@ -319,13 +319,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1385745656}
     m_Modifications:
+    - target: {fileID: 225553801578511541, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Name
       value: InteractionCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Pivot.x
@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.31
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1837,19 +1837,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2748522850993699741, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7200768
+      value: 1.8766301
       objectReference: {fileID: 0}
     - target: {fileID: 2748522850993699741, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8795799
+      value: -6.3092604
       objectReference: {fileID: 0}
     - target: {fileID: 4344724590404246767, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7200768
+      value: 1.8766301
       objectReference: {fileID: 0}
     - target: {fileID: 4344724590404246767, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8795799
+      value: -6.3092604
       objectReference: {fileID: 0}
     - target: {fileID: 9188909998240364602, guid: 4aec4d49739657c4ab58869e3c9d43ec, type: 3}
       propertyPath: Target.TrackingTarget
@@ -2186,6 +2186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1905425942}
     m_Modifications:
+    - target: {fileID: 225553801578511541, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Name
       value: InteractionCanvas
@@ -2256,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.36
+      value: 1.51
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2621,11 +2625,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1884997699012521905, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3294468
+      value: 3.486
       objectReference: {fileID: 0}
     - target: {fileID: 1884997699012521905, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8
+      value: -4.38884
       objectReference: {fileID: 0}
     - target: {fileID: 1884997699012521905, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2657,6 +2661,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1884997699012521905, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063676082690684805, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063676082690684805, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5422953096716738063, guid: 7f3ea8dc7bb17794281adebecfe59f51, type: 3}
@@ -3159,7 +3171,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.011995316, y: -0.15085351}
+  m_Offset: {x: 0.011995316, y: 0.0018959045}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3169,7 +3181,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.3924184, y: 2.5375721}
+  m_Size: {x: 2.3924184, y: 2.2320733}
   m_EdgeRadius: 0
 --- !u!114 &1074654002
 MonoBehaviour:
@@ -4017,6 +4029,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 675987277}
     m_Modifications:
+    - target: {fileID: 225553801578511541, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Name
       value: InteractionCanvas
@@ -4087,7 +4103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.36
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5230,6 +5246,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 190684955}
     m_Modifications:
+    - target: {fileID: 225553801578511541, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Name
       value: InteractionCanvas
@@ -5300,7 +5320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.36
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5332,6 +5352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1565481189}
     m_Modifications:
+    - target: {fileID: 225553801578511541, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Name
       value: InteractionCanvas
@@ -5402,7 +5426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.36
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6730,6 +6754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 52193936}
     m_Modifications:
+    - target: {fileID: 225553801578511541, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Name
       value: InteractionCanvas
@@ -6804,7 +6832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.2995
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6831,6 +6859,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 215945141}
     m_Modifications:
+    - target: {fileID: 225553801578511541, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262137257116599707, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_Name
       value: InteractionCanvas
@@ -6901,7 +6933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.35
+      value: 1.41
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

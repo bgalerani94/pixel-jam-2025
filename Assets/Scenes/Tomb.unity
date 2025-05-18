@@ -694,6 +694,58 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.59375, y: 2.6108093}
   m_EdgeRadius: 0
+--- !u!1 &487525085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487525087}
+  - component: {fileID: 487525086}
+  m_Layer: 0
+  m_Name: TombController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &487525086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487525085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc04750a75b63d04aa1c0cee4f7d77f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introDialogue: "Two altars remain, each a piece of the curse that binds me\u2014and
+    you. Solve their puzzles, and the cycle ends. Fail\u2026 and you join the others
+    forever."
+  endingDialogue: "At last\u2026 you see. You were never the living. You are the
+    last soul trapped here\u2014my soul. The curse is broken\u2026 and we\u2026 are\u2026
+    free."
+  rewards:
+  - {fileID: 270676949}
+--- !u!4 &487525087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487525085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.04734, y: 153.21603, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &675244424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.77
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 7823959266895133359, guid: 23b99f7ad41dfff4bb148f57f6beb0ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3528,3 +3580,4 @@ SceneRoots:
   - {fileID: 1720197003}
   - {fileID: 701644185}
   - {fileID: 747149312}
+  - {fileID: 487525087}
