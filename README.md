@@ -33,7 +33,8 @@ Music & SFX:
 - Groove Loop #1 by danlucaz -- https://freesound.org/s/513957/
 
 Fonts:
-- https://www.dafont.com/pixeloid-sans.font, https://www.dafont.com/alagard.font
+- https://www.dafont.com/pixeloid-sans.font
+- https://www.dafont.com/alagard.font
 
 Color Palette:
 - https://lospec.com/palette-list/dungeon-20
