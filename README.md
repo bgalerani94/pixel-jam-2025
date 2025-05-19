@@ -1,6 +1,6 @@
 # From the Dead
 A pixel-art horror puzzle game
-Developed by Allan Fini, Bruno Galerani, Felipe Bigatto
+Developed by Allan Fini, Bruno Galerani and Felipe Bigatto
 Made for Pixel Game Jam 2025 using Unity 6.1
 
 # Game Description
