@@ -16,9 +16,11 @@ public class GeniusEngine : MonoBehaviour
     public BoxCollider2D pillarCollider;
     public GameObject pillarReward;
     public AudioSource som;
+    public GameObject mouseTutorial;
 
     public void StartGame()
     {
+        mouseTutorial.SetActive(true);
         player.CanMove = false;
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
@@ -68,6 +70,7 @@ public class GeniusEngine : MonoBehaviour
         {
             //Recebe o input do jogador
             yield return new WaitUntil(() => playerinput != -1);
+            mouseTutorial.SetActive(false);
             //checa se o numero digitado corresponde ao index do numero gerado
 
             if (playerinput != controle[i])

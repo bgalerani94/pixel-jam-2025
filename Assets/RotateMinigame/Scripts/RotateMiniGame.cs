@@ -23,6 +23,7 @@ namespace RotateMinigame.Scripts
         [SerializeField] private BoxCollider2D pillarCollider;
         [SerializeField] private GameObject pillarReward;
         [SerializeField] private AudioSource audioSource;
+        [SerializeField] private GameObject mouseTutorial;
 
         private readonly List<int> _pieceRotations = new() { 90, 180, 270 };
 
@@ -35,6 +36,7 @@ namespace RotateMinigame.Scripts
 
         public void OpenMiniGame()
         {
+            mouseTutorial.SetActive(true);
             player.CanMove = false;
             _correctCount = 0;
             canvasGroup.interactable = false;
@@ -53,6 +55,7 @@ namespace RotateMinigame.Scripts
 
         private void OnPieceClicked(Button piece)
         {
+            mouseTutorial.SetActive(false);
             StartCoroutine(RotatePiece(piece));
         }
 
